@@ -1,5 +1,13 @@
 import pygame
 
+class buton:
+    def __init__(self,imagine,actiune,pozitie):
+        self.imagine = imagine
+        self.actiune = actiune
+        self.pozitie = pozitie
+
+
+
 pygame.init()
 
 ecran = pygame.display.set_mode((400,700))
