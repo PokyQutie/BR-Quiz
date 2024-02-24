@@ -5,10 +5,12 @@ from io import BytesIO
 import gspread
 
 class buton:
-    def __init__(self,url,actiune,pozitie):
+    def __init__(self,url,actiune,pozitie,lung,lat):
         self.url = url
         self.actiune = actiune
         self.pozitie = pozitie
+        self.lung = lung
+        self.lat = lat
 
 def import_img(url,poz):
     image_url = url
@@ -39,13 +41,13 @@ spreadsheet_id = "1LJjuzeEC3tc9mxYmxNyXAn-1-ykkUUS2JiIWdIbBO5s"
 sheet = gc.open_by_key(spreadsheet_id)
 
 worksheet = sheet.sheet1
-cell = worksheet.cell(row=1, col=5)
+cell = worksheet.cell(row=1, col=7)
 nr_butt = int(cell.value)
 
 butoane = []
 
 for i in range(1,nr_butt+1):
-    pula = buton(worksheet.cell(row=i+1, col=1).value, worksheet.cell(row=i+1, col=2).value, (int(worksheet.cell(row=i+1, col=3).value),int(worksheet.cell(row=i+1, col=4).value)))
+    pula = buton(worksheet.cell(row=i+1, col=1).value, int(worksheet.cell(row=i+1, col=2).value), (int(worksheet.cell(row=i+1, col=3).value),int(worksheet.cell(row=i+1, col=4).value)),int(worksheet.cell(row=i+1,col=5).value),int(worksheet.cell(row=i+1,col=6).value))
     butoane.append(pula)
 
 for i in butoane:
@@ -60,8 +62,9 @@ while running:
     for event in pygame.event.get(): 
         if event.type == pygame.MOUSEBUTTONUP:
             pos = pygame.mouse.get_pos()
-            '''#for i in butoane:
-                if pos[0] >='''
+            for i in butoane:
+                if pos[0] >= i.pozitie[0] and pos[1] >= i.pozitie[1] and pos[0] <= i.pozitie[0]+i.lung/2 and pos[1] <= i.pozitie[1]+i.lat:
+                    print("uwu")
 
       
         # Check for QUIT event       
