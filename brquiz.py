@@ -84,6 +84,10 @@ while running:
                                                 pos = pygame.mouse.get_pos()
                                                 if pos[1] >= 700-201:
                                                     ok=1
+                            import_img("https://i.ibb.co/FhBZSRK/fundal-Copy.png",(0,0))
+                            import_img("https://i.ibb.co/RpSNH2h/tabbar.png",(0,630))
+                            while 1 != 0:
+                                pass
                                     
                             break
                         import_img("https://i.ibb.co/k0rBN10/fundal.png",(0,0))
