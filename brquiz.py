@@ -35,6 +35,7 @@ pygame.display.flip()
 #incarcare fundal
 import_img("https://i.ibb.co/k0rBN10/fundal.png",(0,0))
 import_img("https://i.ibb.co/RpSNH2h/tabbar.png",(0,630))
+import_img("https://i.ibb.co/xFRRC8N/Captura-ecran-3.png",(175,5))
 
 credentials_file = "C:\\Users\\stefi\\Desktop\\br\\BR-Quiz\\br-quiz-415321-45910d66fccb.json"
 gc = gspread.service_account(filename=credentials_file)
@@ -87,8 +88,14 @@ while running:
                             break
                         import_img("https://i.ibb.co/k0rBN10/fundal.png",(0,0))
                         
+            if pos[1]>630:
+                import_img("https://i.ibb.co/FhBZSRK/fundal-Copy.png",(0,0))
+                import_img("https://i.ibb.co/RpSNH2h/tabbar.png",(0,630))
+                while 1 != 0:
+                    pass
             import_img("https://i.ibb.co/k0rBN10/fundal.png",(0,0))     
             import_img("https://i.ibb.co/RpSNH2h/tabbar.png",(0,630))
+            import_img("https://i.ibb.co/xFRRC8N/Captura-ecran-3.png",(175,5))
             for i in butoane:
                 import_img(i.url, i.pozitie)
 
